@@ -23,8 +23,8 @@ export default function Contact() {
 
     return (
         <>
-            <div>
-                <h1>Current Location</h1>
+            <div className='center'>
+                <h1 >Current Location</h1>
                 {latitude && longitude ? (
                     <p>
                         Latitude: {latitude}, Longitude: {longitude}

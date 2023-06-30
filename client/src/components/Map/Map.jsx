@@ -1,10 +1,11 @@
 import React from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import './Map.css'
 
 const MyComponent = (props) => {
     return (
-        <div>
-            <h1>My Google Map Component</h1>
+        <div className='mapBox'>
+            <h1 className='center'>My Google Map Component</h1>
             <Map google={props.google} />
         </div>
     );

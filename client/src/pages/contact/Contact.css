@@ -1,7 +1,13 @@
+.location {}
+
 .map {
-    margin: 50px;
+
+    margin-bottom: 100px;
 }
 
-.location {
-    margin: 50px;
+.verticalAlignBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

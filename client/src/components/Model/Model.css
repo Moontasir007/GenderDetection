@@ -1,0 +1,16 @@
+.webcamBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.center {
+    text-align: center;
+    margin: 50px;
+}
+
+.text {
+    font-family: 'Josefine Sans', sans-serif;
+    margin: 50px;
+}

@@ -1,0 +1,15 @@
+.videoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.center {
+    text-align: center;
+}
+
+.text {
+    font-family: 'Josefine Sans', sans-serif;
+    margin: 50px;
+}

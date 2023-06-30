@@ -1,0 +1,58 @@
+.login {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)),
+        url("https://img.freepik.com/free-photo/multi-ed-fish-swarm-soft-coral-tropical-reef-generated-by-ai_188544-10058.jpg?size=626&ext=jpg&uid=R64718410&ga=GA1.2.299819484.1668252753&semt=sph");
+    background-size: cover;
+}
+
+.loginTitle {
+    font-size: 50px;
+}
+
+.loginForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm>label {
+    margin: 10px 0;
+}
+
+.loginInput {
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.loginButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.loginButton:disabled {
+    cursor: not-allowed;
+    background-color: rgb(244, 166, 166);
+}
+
+.loginRegisterButton {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}

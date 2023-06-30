@@ -1,30 +1,47 @@
 .header {
     margin-top: 60px;
+    position: relative;
 }
 
 .headerTitles {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Lora', serif;
     color: #e2be08;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s;
+    /* Delay the animation by 1 second */
+    z-index: 1;
+    /* Ensure the text appears above the image */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .headerTitlesSm {
-    position: absolute;
-    top: 18%;
     font-size: 20px;
 }
 
 .headerTitlesLg {
-    position: absolute;
-    top: 20%;
     font-size: 100px;
 }
 
 .headerImg {
     width: 100%;
     height: 450px;
-    margin-top: 80px;
     object-fit: cover;
 }

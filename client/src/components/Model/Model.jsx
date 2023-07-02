@@ -8,7 +8,7 @@ export default function Classify() {
 
     useEffect(() => {
         const runModel = async () => {
-            const URL = 'https://teachablemachine.withgoogle.com/models/OQmgcBLev/';
+            const URL = 'https://teachablemachine.withgoogle.com/models/-Dfal48zO/';
             const modelURL = URL + 'model.json';
             const metadataURL = URL + 'metadata.json';
 

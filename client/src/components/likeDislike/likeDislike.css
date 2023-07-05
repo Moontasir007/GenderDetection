@@ -1,0 +1,29 @@
+.likeDislike {
+    display: flex;
+    align-items: center;
+}
+
+.likeDislikeItem {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.likeIcon,
+.dislikeIcon {
+    font-size: 18px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.likeIcon.liked {
+    color: blue;
+}
+
+.dislikeIcon.disliked {
+    color: red;
+}
+
+.likeCounter {
+    font-size: 14px;
+}

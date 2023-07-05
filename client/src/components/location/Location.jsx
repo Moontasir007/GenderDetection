@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import "./Location.css"
+import { GoogleMap, Marker } from '@react-google-maps/api';
+import './Location.css';
 
-export default function Contact() {
+export default function Location() {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
 
@@ -24,17 +25,21 @@ export default function Contact() {
     return (
         <>
             <div className='center'>
-                <h1 >Current Location</h1>
+                <h1>Current Location</h1>
                 {latitude && longitude ? (
-                    <p>
-                        Latitude: {latitude}, Longitude: {longitude}
-                    </p>
+                    <div style={{ height: '400px', width: '100%' }}>
+                        <GoogleMap
+                            mapContainerStyle={{ height: '100%', width: '100%' }}
+                            center={{ lat: latitude, lng: longitude }}
+                            zoom={14}
+                        >
+                            <Marker position={{ lat: latitude, lng: longitude }} />
+                        </GoogleMap>
+                    </div>
                 ) : (
                     <p>Loading location...</p>
                 )}
             </div>
-
         </>
-
     );
 }

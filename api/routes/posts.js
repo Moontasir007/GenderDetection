@@ -1,100 +1,67 @@
-const router = require("express").Router();
-const User = require("../models/User");
+const express = require("express");
+const router = express.Router();
+
 const Post = require("../models/Post");
-const bcrypt = require("bcrypt");
 
-//Create post
-router.post("/", async (req, res) => {
-    const newPost = new Post(req.body);
-    console.log(newPost)
-    const savedPost = await newPost.save();
+// Get all posts
+router.get("/", async (req, res) => {
     try {
-        res.status(200).json(savedPost);
+        const posts = await Post.find();
+        res.json(posts);
     } catch (err) {
-        res.status(500).json(savedPost);
+        res.status(500).json({ error: err.message });
     }
 });
 
-//Update post
-router.put("/:id", async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-        if (post.username === req.body.username) {
-            try {
-                const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
-                    $set: req.body,
-                }, { new: true });
-                res.status(200).json(updatedPost);
-            } catch (err) {
-                res.status(500).json(err);
-            }
-        }
-        else {
-            res.status(401).json("you can update only your post!");
-        }
-    } catch (err) {
-        res.status(500).json(err);
-    }
-
-});
-
-//Delete post
-router.delete("/:id", async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-        if (post.username === req.body.username) {
-            try {
-                await post.delete()
-                res.status(200).json("Post has been deleted...");
-            } catch (err) {
-                res.status(500).json(err);
-            }
-        }
-        else {
-            res.status(401).json("you can delete only your post!");
-        }
-    } catch (err) {
-        res.status(500).json(err);
-    }
-
-});
-
-
-//Get post
+// Get single post by ID
 router.get("/:id", async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
-        console.log(post)
-        res.status(200).json(post);
+        res.json(post);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ error: err.message });
     }
 });
 
+// Create new post
+router.post("/", async (req, res) => {
+    const { title, description } = req.body;
 
-//Get all post
+    const newPost = new Post({
+        title,
+        description,
+    });
 
-router.get("/", async (req, res) => {
-    const username = req.query.user;
-    const catname = req.query.cat;
     try {
-        let posts;
-        if (username) {
-            posts = await Post.find({ username })
-        } else if (catname) {
-            posts = await Post.find({
-                categories: {
-                    $in: [catname]
-                }
-            })
-        } else {
-            posts = await Post.find();
-        }
-        res.status(200).json(posts);
+        const savedPost = await newPost.save();
+        res.json(savedPost);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ error: err.message });
     }
 });
 
+// Update post by ID
+router.put("/:id", async (req, res) => {
+    try {
+        const updatedPost = await Post.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        res.json(updatedPost);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
-module.exports = router
+// Delete post by ID
+router.delete("/:id", async (req, res) => {
+    try {
+        await Post.findByIdAndDelete(req.params.id);
+        res.json({ message: "Post deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+module.exports = router;

@@ -1,0 +1,10 @@
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 0.2s;
+}

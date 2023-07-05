@@ -1,11 +1,15 @@
+// Topbar.jsx
 import { gsap } from "gsap";
-import { useContext, useEffect, useRef } from "react";
-import { Context } from "../../context/Context";
+import { useContext, useEffect, useState, useRef } from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
+
+
 
 export default function Topbar() {
     const { user, dispatch } = useContext(Context);
+
     const topRef = useRef(null);
 
     useEffect(() => {
@@ -16,8 +20,10 @@ export default function Topbar() {
         );
     }, []);
 
+
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" });
+
     };
 
     return (
@@ -43,11 +49,6 @@ export default function Topbar() {
                     <li className="topListItem">
                         <Link className="link" to="/contact">
                             CONTACT
-                        </Link>
-                    </li>
-                    <li className="topListItem">
-                        <Link className="link" to="/write">
-                            WRITE
                         </Link>
                     </li>
                     <li className="topListItem">
@@ -78,6 +79,7 @@ export default function Topbar() {
                     </ul>
                 )}
                 <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+
             </div>
         </div>
     );

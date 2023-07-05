@@ -1,5 +1,5 @@
 import "./settings.css"
-import Sidebar from "../../components/sidebar/sidebar"
+
 import Footer from '../../components/footer/footer'
 
 export default function settings() {
@@ -26,7 +26,7 @@ export default function settings() {
                         <button className="settingsSubmit">Update</button>
                     </form>
                 </div>
-                <Sidebar />
+
             </div>
             <Footer />
         </>

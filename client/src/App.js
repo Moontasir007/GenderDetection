@@ -1,6 +1,5 @@
 import Home from "./pages/home/Home"
-import Single from "./pages/Single/single"
-import Write from "./pages/write/write"
+
 import Settings from "./pages/settings/settings"
 import Login from "./pages/login/login"
 import Register from "./pages/register/register"
@@ -44,12 +43,8 @@ function App() {
         <Route path="/settings">
           {user ? <Settings /> : <Register />}
         </Route>
-        <Route path="/write">
-          {user ? <Write /> : <Register />}
-        </Route>
-        <Route path="/post/:postId">
-          <Single />
-        </Route>
+
+
       </Switch>
     </Router>
   );
